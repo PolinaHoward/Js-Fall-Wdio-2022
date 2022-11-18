@@ -88,8 +88,12 @@ it('If female gender is NOT selected, then click on female gender radio button',
     await browser.pause(7000)
      const femaleRadioButton = await $('input[value="1"]');
         const isFemaleGenderSelected = await femaleRadioButton.isSelected();
-        expect(isFemaleGenderSelected, femaleRadioButton.click()).to.be.false;
+        expect(isFemaleGenderSelected,'Female gender is already selected').to.be.false;
         await browser.pause(7000)
+
+        if(!isFemaleGenderSelected ){
+           await femaleRadioButton.click()
+        }
    
 })
 
